@@ -1,4 +1,6 @@
+import 'package:deep_dive_get_cli/app/shared/widgets/header.dart';
 import 'package:deep_dive_get_cli/app/shared/widgets/image_story.dart';
+import 'package:deep_dive_get_cli/app/shared/widgets/navbar.dart';
 import 'package:deep_dive_get_cli/app/shared/widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,9 @@ class HomeView extends GetView<HomeController> {
     return GetBuilder<HomeController>(builder: (context) {
       return SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            title: Header(),
+          ),
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,10 +41,9 @@ class HomeView extends GetView<HomeController> {
                           right: 12,
                         ),
                         child: ImageStory(
-                          
                           story: data,
                           onTap: () {
-                            controller.toStoryPageView(data.storyItems );
+                            controller.toStoryPageView(data.storyItems);
                           },
                         ),
                       );
@@ -56,9 +60,14 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(
                   height: 18,
                 ),
+                Post(
+                  postModel: controller.postModel,
+                  onPressed: controller.changeIconLike,
+                ),
               ],
             ),
           ),
+          bottomNavigationBar: Navbar(),
         ),
       );
     });

@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 class ImageStory extends StatelessWidget {
   final StoryModel story;
   final void Function()? onTap;
+
   const ImageStory({
-    super.key,
+    Key? key,
     required this.story,
     this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,39 +23,32 @@ class ImageStory extends StatelessWidget {
             height: 72,
             child: Stack(
               children: [
-                SizedBox(
-                  width: 72,
-                  height: 72,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(72),
-                    child: Image.asset(
-                      'assets/images/${story.image}.png',
-                      fit: BoxFit.cover,
+                CircleAvatar(
+                  radius: 36,
+                  backgroundImage:
+                      AssetImage('assets/images/${story.image}.png'),
+                ),
+                if (story.isLoginAccount)
+                  Positioned(
+                    bottom: 0,
+                    right: 0.9,
+                    child: CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Colors.blue,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.add),
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-                story.isLoginAccount
-                    ? Align(
-                        alignment: Alignment.bottomRight,
-                        child: SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text(
-                              '',
-                            ),
-                          ),
-                        ),
-                      )
-                    : const SizedBox(),
               ],
             ),
           ),
           SizedBox(
-            width:72,
+            width: 72,
             child: Text(
-              story.namaAkun, 
+              story.namaAkun,
               textAlign: TextAlign.center,
             ),
           ),

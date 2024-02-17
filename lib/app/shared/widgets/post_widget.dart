@@ -1,5 +1,6 @@
 import 'package:deep_dive_get_cli/app/data/model/post_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Post extends StatelessWidget {
@@ -73,19 +74,34 @@ class Post extends StatelessWidget {
           height: 9.25,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             IconButton(
               onPressed: onPressed,
               icon: Icon(
-                postModel.isLike ? Icons.favorite : Icons.favorite_border,
+                postModel.isLike
+                    ? Icons.favorite
+                    : Icons.favorite_border_outlined,
+                color: Colors.red,
               ),
             ),
-            const Icon(
+            SizedBox(
+              width: 5,
+            ),
+            Icon(
               Icons.comment,
             ),
-            const Icon(
+            SizedBox(
+              width: 12,
+            ),
+            Icon(
               Icons.share,
             ),
+            Spacer(),
+            Padding(
+              padding: EdgeInsets.only(right: 8),
+              child: Icon(Icons.bookmark_border_outlined),
+            )
           ],
         ),
         Padding(

@@ -13,7 +13,7 @@ class HomeController extends GetxController {
     description:
         'Username Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
     fotoProfile: 'foto_profile',
-    jumlahLike: 1,
+    jumlahLike: 1000,
     isLike: false,
     postingGambar: 'foto_profile',
     isSponsor: true,
@@ -30,7 +30,7 @@ class HomeController extends GetxController {
     storyModel = [
       StoryModel(
         image: 'foto_profile',
-        namaAkun: 'Ruffles',
+        namaAkun: 'Georgio',
         storyItems: [
           StoryItem.text(
             title: "I guess you'd love to see more of our food. That's great.",
@@ -45,7 +45,7 @@ class HomeController extends GetxController {
       ),
       StoryModel(
         image: 'foto_profile',
-        namaAkun: 'Sabanok',
+        namaAkun: 'Rasendriya',
         storyItems: [
           StoryItem.pageImage(
             url:
@@ -57,7 +57,29 @@ class HomeController extends GetxController {
       ),
       StoryModel(
         image: 'foto_profile',
-        namaAkun: 'Blue_Boy',
+        namaAkun: 'Andre',
+        storyItems: [
+          StoryItem.pageImage(
+            url: "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+            caption: "Still sampling",
+            controller: storyController,
+          ),
+        ],
+      ),
+      StoryModel(
+        image: 'foto_profile',
+        namaAkun: 'Fausta',
+        storyItems: [
+          StoryItem.pageImage(
+            url: "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+            caption: "Still sampling",
+            controller: storyController,
+          ),
+        ],
+      ),
+      StoryModel(
+        image: 'foto_profile',
+        namaAkun: 'Limbad',
         storyItems: [
           StoryItem.pageImage(
             url: "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
